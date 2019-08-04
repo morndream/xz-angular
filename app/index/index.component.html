@@ -1,0 +1,116 @@
+<!-- 页头 -->
+<ion-header>
+  <!-- 工具条：高度 -->
+  <ion-toolbar>
+    <img slot="start" src="../../assets/logo.png">
+    <ion-searchbar slot="end"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- 页面主体 slides+grid+card-->
+<ion-content>
+  <!-- 轮播广告 -->
+  <ion-slides  pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let c of carouselItems"> 
+      <p>
+        <img [src]="'http://www.codeboy.com/'+c.img" alt="">
+      </p>
+    </ion-slide>
+  </ion-slides>
+  <!-- 1F商品 -->
+  <ion-item>
+    <img src="../../assets/computer_icon.png" slot="start">
+    <ion-label>
+      <h2>首页推荐 / 1F</h2>
+    </ion-label>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding size="6" *ngFor="let p of recommendedItems">
+        <ion-card>
+          <img [src]="'http://www.codeboy.com/'+p.pic">
+          <ion-card-header>
+            <ion-card-title>{{p.title}}</ion-card-title>
+            <ion-card-subtitle>{{p.details}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+             价格：{{p.price | currency:'¥'}}
+             <ion-button color="primary">查看详情</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- 2F商品 -->
+  <ion-item>
+      <img src="../../assets/computer_icon.png" slot="start">
+      <ion-label>
+        <h2>首页推荐 / 2F</h2>
+      </ion-label>
+  </ion-item>
+  <ion-grid>
+      <ion-row>
+        <ion-col no-padding size="6" *ngFor="let p of recommendedItems">
+          <ion-card>
+            <img [src]="'http://www.codeboy.com/'+p.pic">
+            <ion-card-header>
+              <ion-card-title>{{p.title}}</ion-card-title>
+              <ion-card-subtitle>{{p.details}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+               价格：{{p.price | currency:'¥'}}
+               <ion-button color="primary">查看详情</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+  <!-- 3F商品 -->
+  <ion-item>
+      <img src="../../assets/computer_icon.png" slot="start">
+      <ion-label>
+        <h2>首页推荐 / 3F</h2>
+      </ion-label>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding size="6" *ngFor="let p of recommendedItems">
+        <ion-card>
+          <img [src]="'http://www.codeboy.com/'+p.pic">
+            <ion-card-header>
+              <ion-card-title>{{p.title}}</ion-card-title>
+              <ion-card-subtitle>{{p.details}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+               价格：{{p.price | currency:'¥'}}
+               <ion-button color="primary">查看详情</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+  <!-- 底部图片 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <div class="icon-box">
+          <img src="../../assets/icon1.png">
+        </div>
+      </ion-col>
+      <ion-col size="3">
+          <div class="icon-box">
+            <img src="../../assets/icon2.png">
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="icon-box">
+            <img src="../../assets/icon3.png">
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="icon-box">
+           <img src="../../assets/icon4.png">
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

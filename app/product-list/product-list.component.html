@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar slot="end"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- 商品列表：列表项组成的卡片 -->
+  <ion-card>
+    <ion-item *ngFor="let p of productList" detail>
+      <ion-thumbnail slot="start">
+        <img [src]="'http://www.codeboy.com/'+p.pic">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{p.title}}</h3>
+        <ion-text color="danger">价格：{{p.price|currency:'¥'}}</ion-text>
+      </ion-label>
+      <ion-button [routerLink]="'/product-detail/'+p.lid" slot="end">详情</ion-button>
+    </ion-item>
+  </ion-card>
+  <!-- “没有更多商品”提示 -->
+  <ion-button *ngIf="!hasMore" disabled="true" expand="block">
+    没有更多商品
+  </ion-button>
+  <!-- 无限滚动：加载更多的内容 -->
+  <ion-infinite-scroll  threshold="50px"  (ionInfinite)="loadMore()">
+    <ion-infinite-scroll-content 
+     loadingSpinner="bubbles" loadingText="加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
